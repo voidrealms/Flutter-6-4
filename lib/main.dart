@@ -25,8 +25,10 @@ class _State extends State<MyApp> {
     var response = await http.get(url);
 
     if(response.statusCode == 200) {
-      setState(() => _countries = JSON.decode(response.body));
+      setState(() => _countries = json.decode(response.body));
       print('Loaded ${_countries.length} countries');
+    } else {
+      print("Status code: ${response.statusCode}");
     }
   }
 
